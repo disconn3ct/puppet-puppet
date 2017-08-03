@@ -644,6 +644,10 @@
 # $server_allow_header_cert_info::          Enable client authentication over HTTP Headers
 #                                           Defaults to false, is also activated by the $server_http setting
 #                                           type:Boolean
+#
+# $server_web_idle_timeout::                Time in ms that Jetty allows a socket to be idle, after processing has
+#                                           completed.
+#                                           Defaults to 30000, using the Jetty default of 30s
 # === Usage:
 #
 # * Simple usage:
@@ -826,6 +830,7 @@ class puppet (
   $server_check_for_updates               = $puppet::params::server_check_for_updates,
   $server_environment_class_cache_enabled = $puppet::params::server_environment_class_cache_enabled,
   $server_allow_header_cert_info          = $puppet::params::server_allow_header_cert_info,
+  $server_web_idle_timeout                = $puppet::params::server_web_idle_timeout,
 ) inherits puppet::params {
 
   validate_bool($listen)

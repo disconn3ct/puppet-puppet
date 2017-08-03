@@ -349,6 +349,9 @@
 # $connect_timeout::           How long the server will wait for a response to a connection attempt
 #                              type:integer
 #
+# $web_idle_timeout::          Time in ms that Jetty allows a socket to be idle, after processing has completed.
+#                              Defaults to the Jetty default of 30s
+#
 # $ssl_protocols::             Array of SSL protocols to use.
 #                              Defaults to [ 'TLSv1.2' ]
 #                              type:array
@@ -432,6 +435,7 @@ class puppet::server(
   $cipher_suites                   = $::puppet::server_cipher_suites,
   $config_version                  = $::puppet::server_config_version,
   $connect_timeout                 = $::puppet::server_connect_timeout,
+  $web_idle_timeout                = $::puppet::server_web_idle_timeout,
   $git_repo                        = $::puppet::server_git_repo,
   $dynamic_environments            = $::puppet::server_dynamic_environments,
   $directory_environments          = $::puppet::server_directory_environments,
